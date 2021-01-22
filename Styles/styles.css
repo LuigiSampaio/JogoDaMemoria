@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+:root {
+    --front: #101c2c;
+    --back: #05c3ff;
+    --white: #ffffff;
+    --yellow: yellow;
+    --body: #c7cdd3;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Righteous', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+    background-color: var(--body);
+}
+
+html {
+    font-size: 62.5%;
+}
+
+.card {
+    width: 11rem;
+    height: 11rem;
+    position: relative;
+
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+}
+
+.card_front, .card_back {
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 2rem;
+    box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.45);
+    backface-visibility: hidden;
+}
+
+.flip {
+    transform: rotateY(180deg);
+}
+
+.card_front {
+    transform: rotateY(180deg);
+    background-color: var(--front);
+}
+
+.card_back {
+    color: var(--front);
+    font-size: 3rem;
+    background-color: var(--back);
+
+    /* display: none; */
+}
+
+#gameOver {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+
+    background-color: rgba(0, 0, 0, 0.8);
+    color: var(--white);
+    font-size: 3rem;
+
+    display: none;
+    top: 0;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#restart {
+    padding: 2rem;
+    font-size: 2rem;
+    font-weight: bold;
+    background-color: var(--yellow);
+    border: none;
+    border-radius: 1rem;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+
+#gameBoard {
+    max-width: 70rem;
+
+    display: grid;
+    grid-template: repeat(5, 1fr) / repeat(4, 1fr);
+    gap: 1.5rem;
+}
